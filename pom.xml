@@ -1,46 +1,37 @@
-# billing-product
-Spring Boot + Angular 7 web application for billing
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.4.5</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.vrb.product</groupId>
+	<artifactId>billing-product</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>billing-product</name>
+	<description>Billing Product</description>
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
 
-1) Create Spring boot UI application from 
-   https://start.spring.io/	
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
 
-2) Add below dependencies to the downloaded code to start as Spring boot UI application
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
-```
-<dependency>
-	<groupId>org.springframework.boot</groupId>
-	<artifactId>spring-boot-starter-web</artifactId>
-</dependency>
-```
-
-3) Add *static* folder under /billing-product/src/main/resources/
-Here we will be storing the angular generated ui build output.
-
-4) Create Angular app named *billing-product-ui* inside the root folder
-
-```
-ng new billing-product-ui
-```
-
-5) Add ui-install-build.js to the root folder of billing-product-ui
-
-ui-install-build.js
-```
-const args = process.argv;
-var exec = require('child_process').execSync;
-var cmd = "cd billing-product-ui && " + args[2] + " " + args[3] + " " + args[4];
-
-var options = {
-	encoding : 'utf8'
-};
-
-console.log(exec(cmd, options));
-```
-
-6) Add maven plugin and profile to build the angular ui and then copy the build to static folder
-
-```
-<build>
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -127,16 +118,5 @@ console.log(exec(cmd, options));
 			</build>
 		</profile>
 	</profiles>
-```
 
-7) Build the application
-```
-mvn clean install -Pbuild-ui 
-```
-
-8) Start the application
-```
-java -jar target/billing-product-0.0.1-SNAPSHOT.jar
-```
-
-9) Verify at http://localhost:8080
+</project>
