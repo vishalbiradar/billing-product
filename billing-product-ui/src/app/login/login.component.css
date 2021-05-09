@@ -1,0 +1,443 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #fff;
+  font-family: "Roboto", sans-serif;
+}
+
+.login-page {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background: #f5f8fd url(../../assets/images/hero-bg.png) center top no-repeat;
+  background-size: cover;
+  padding-top: 110px;
+}
+
+.login-page .container-fluid {
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+.login-page h2 {
+  color: #413e66;
+  margin-bottom: 40px;
+  font-size: 58px;
+  font-weight: 700;
+  font-family: "Open Sans", sans-serif;
+}
+
+.login-page h3 {
+  color: #696592;
+  font-weight: 400;
+  font-size: 22px;
+}
+
+.login-page p {
+  font-size: 15px;
+  color: #535074;
+}
+
+.login-page p span {
+  margin-right: 20px;
+}
+
+.login-page .main-menu-div {
+  padding: 0;
+  margin-top: 20px
+}
+
+.login-page .main-menu-button {
+  color: #ffffff;
+  font-weight: 500;
+  padding: 5px 10px 5px 10px;
+  border-radius: 50px;
+  border: none;
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+
+.login-btn-div {
+  padding-top: 5%;
+  text-align: center;
+}
+
+.fancy-btn {
+  color: #413e66;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 44px;
+  padding: 0 15px;
+  width: 160px;
+  height: 46px;
+  border-left: 2px solid #7450fe;
+  border-right: 2px solid #21d397;
+  box-sizing: border-box;
+  background-position: 0 0, 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 2px;
+  background-image: -webkit-linear-gradient(left, #7450fe 0%, #21d397 100%),
+  -webkit-linear-gradient(left, #7450fe 0%, #21d397 100%);
+  background-image: linear-gradient(to right, #7450fe 0%, #21d397 100%),
+  linear-gradient(to right, #7450fe 0%, #21d397 100%);
+  -webkit-transition-duration: 1000ms;
+  transition-duration: 1000ms;
+  position: relative;
+  z-index: 1;
+  background-color: transparent;
+}
+
+.fancy-btn:hover:after {
+  opacity: 1;
+  -ms-filter: "alpha(opacity=100)";
+}
+
+.fancy-btn:hover {
+  color: #fff
+}
+
+.fancy-btn:after {
+  color: #fff;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+  background: -webkit-linear-gradient(to right, #7450fe, #21d397);
+  background: linear-gradient(to right, #7450fe, #21d397);
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 2px;
+  opacity: 0;
+  -ms-filter: "alpha(opacity=0)";
+}
+
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  -webkit-transition-duration: 600ms;
+  transition-duration: 600ms;
+  outline: none;
+}
+
+/* login form */
+.wrap-login100 {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.p-r-55 {
+  padding-right: 55px;
+}
+
+.p-l-55 {
+  padding-left: 55px;
+}
+
+.p-b-54 {
+  padding-bottom: 54px;
+}
+
+.p-t-65 {
+  padding-top: 65px;
+}
+
+.login100-form {
+  width: 100%;
+}
+
+.login100-form-title {
+  display: block;
+  font-size: 39px;
+  color: #333;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.p-b-49 {
+  padding-bottom: 49px;
+}
+
+.validate-input {
+  position: relative;
+}
+
+.wrap-input100 {
+  width: 100%;
+  position: relative;
+  border-bottom: 2px solid #d9d9d9;
+}
+
+.m-b-23 {
+  margin-bottom: 23px;
+}
+
+.label-input100 {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+  padding-left: 7px;
+}
+
+.input100 {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.2;
+  display: block;
+  width: 100%;
+  height: 55px;
+  background: 0 0;
+  padding: 0 7px 0 43px;
+}
+
+.login-form input {
+  outline: none;
+  border: none;
+}
+
+.focus-input100 {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.focus-input100::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #0DB8DE;
+  -webkit-transition: all .4s;
+  -o-transition: all .4s;
+  -moz-transition: all .4s;
+  transition: all .4s;
+}
+
+.focus-input100::after {
+  content: attr(data-symbol);
+  font-family: FontAwesome;
+  color: #adadad;
+  font-size: 22px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: calc(100% - 20px);
+  bottom: 0;
+  left: 0;
+  padding-left: 13px;
+  padding-top: 3px;
+}
+
+.input100:focus+.focus-input100::before {
+  width: 100%
+}
+
+.has-val.input100+.focus-input100::before {
+  width: 100%
+}
+
+.input100:focus+.focus-input100::after {
+  color: #0DB8DE
+}
+
+.has-val.input100+.focus-input100::after {
+  color: #0DB8DE
+}
+
+.alert-validate::before {
+  content: attr(data-validate);
+  position: absolute;
+  max-width: 70%;
+  background-color: #fff;
+  border: 1px solid #c80000;
+  border-radius: 2px;
+  padding: 4px 25px 4px 10px;
+  bottom: calc(( 100% - 20px)/2);
+  -webkit-transform: translateY(50%);
+  -moz-transform: translateY(50%);
+  -ms-transform: translateY(50%);
+  -o-transform: translateY(50%);
+  transform: translateY(50%);
+  right: 2px;
+  pointer-events: none;
+  color: #c80000;
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: left;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity .4s;
+  -o-transition: opacity .4s;
+  -moz-transition: opacity .4s;
+  transition: opacity .4s
+}
+
+.alert-validate::after {
+  content: "\f06a";
+  font-family: FontAwesome;
+  display: block;
+  position: absolute;
+  color: #c80000;
+  font-size: 16px;
+  bottom: calc(( 100% - 20px)/2);
+  -webkit-transform: translateY(50%);
+  -moz-transform: translateY(50%);
+  -ms-transform: translateY(50%);
+  -o-transform: translateY(50%);
+  transform: translateY(50%);
+  right: 8px
+}
+
+.alert-validate:hover:before {
+  visibility: visible;
+  opacity: 1
+}
+
+.login-error {
+  color: red;
+  padding-left: 5px;
+  padding-bottom: 10px;
+}
+
+.home-page {
+  padding-top: 110px;
+  background-color: #ecfdff;
+  padding-bottom: 50px;
+}
+
+/* table css start */
+.current-table-div {
+  border: 2px solid darkgrey;
+  border-radius: 5px;
+  background-color: #ffffff;
+  width: 75%;
+  margin-left: 20px;
+}
+
+.current-table {
+  margin-bottom: 0;
+}
+
+.current-table>tbody>tr:nth-of-type(odd) {
+  background-color: #ececec;
+}
+
+.current-table thead {
+  background-color: #D3D3D3;
+  font-family: "MuseoSans_500", sans-serif;
+}
+
+.current-table tr, .current-table th, .current-table td {
+  border-color: #dddddd !important;
+}
+
+/* fixed table header */
+.current-table tbody {
+  display: block;
+  overflow-y: auto;
+  height: 270px;
+  padding-bottom: 30px;
+}
+
+.current-table thead, .current-table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* table css end */
+.table-dropdown-div {
+  border: 2px solid darkgrey;
+  border-radius: 5px;
+  background-color: #ffffff;
+  width: 75%;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.table-dropdown-div select {
+  width: 80%;
+  height: 30px;
+}
+
+.table-dropdown-div .table>tbody>tr>td {
+  border-top: none;
+}
+
+.table-status-div {
+  border: 2px solid darkgrey;
+  border-radius: 5px;
+  background-color: #ffffff;
+  width: 75%;
+  margin-left: 20px;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.table-status-button {
+  margin-bottom: 15px;
+  margin-right: 15px;
+  width: 100px;
+  height: 40px;
+  border: 1px solid gray;
+}
+
+.table-status-active {
+  background-image: -webkit-linear-gradient(left, #7450fe 0%, #21d397 100%),
+  -webkit-linear-gradient(left, #7450fe 0%, #21d397 100%);
+  background-image: linear-gradient(to right, #7450fe 0%, #21d397 100%),
+  linear-gradient(to right, #7450fe 0%, #21d397 100%);
+  border: none;
+  color: white;
+}
+
+.table-dropdown-div table {
+  margin-bottom: unset;
+}
+
+.table-dropdown-div input[name="tableNumber"], .table-dropdown-div input[name="itemName"],
+.table-dropdown-div input[name="quantity"] {
+  border: 2px solid gray;
+  height: 40px;
+  width: 100%;
+  padding-left: 10px;
+  border-radius: 5px;
+}
+
+.table-dropdown-div .fancy-btn {
+  margin-top: 20px;
+}
+
+.table-dropdown-div table td:nth-child(1) {
+  width: 20%;
+}
+
+.table-dropdown-div table td:nth-child(2) {
+  width: 45%;
+}
+
+.table-dropdown-div table td:nth-child(3) {
+  width: 20%;
+}
+
+.table-dropdown-div table td:nth-child(4) {
+  width: 15%;
+}

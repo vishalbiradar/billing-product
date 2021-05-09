@@ -1,0 +1,134 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <h2>{{hotelNameHeading}}</h2>
+  </div>
+</nav>
+
+<div class="home-page">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="table-dropdown-div box">
+          <div>{{error}}</div>
+          <form (ngSubmit)="addItemsToCart()" #loginForm="ngForm">
+            <table class="table">
+              <tbody>
+              <tr>
+                <td>
+                  <label for="tableNumber">Table Number</label>
+                  <input list="tableList" name="tableNumber" id="tableNumber" placeholder="Select Table"
+                         [ngModel]="selectedTable.tableNumber"
+                         (change)="changeSelectedTableBasedOnDropdownSelect($event)" required>
+                  <datalist id="tableList">
+                    <option *ngFor="let table of tableList" value="{{table.tableNumber}}">{{table.tableNumber}}</option>
+                  </datalist>
+                </td>
+                <td>
+                  <label for="itemName">Items</label>
+                  <input list="itemsList" name="itemName" id="itemName" placeholder="Select Items"
+                         (change)="changeSelectedItem($event)"
+                         [ngModel]="selectedItem.itemName" required>
+                  <datalist id="itemsList">
+                    <option value="{{item.itemName}}" *ngFor="let item of itemsList">{{item.itemName}}</option>
+                  </datalist>
+                </td>
+                <td>
+                  <label for="quantity">Quantity</label>
+                  <input type="text" name="quantity" id="quantity" placeholder="Quantity" [(ngModel)]="quantity"
+                         required>
+                </td>
+                <td>
+                  <button class="btn fancy-btn">Add to cart</button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </form>
+        </div>
+        <div class="current-table-div box">
+          <table class="table table-striped current-table">
+            <thead>
+            <tr>
+              <th>Table Number</th>
+              <th>Item Name</th>
+              <th>Quantity</th>
+              <th>Rate</th>
+              <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of selectedTable.items">
+              <th>{{selectedTable.tableNumber}}</th>
+              <th>{{item.itemName}}</th>
+              <th>{{item.quantity}}</th>
+              <th>{{item.rate}}</th>
+              <th>{{item.total}}</th>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-status-div box">
+          <div class="select-table-text">Click on table number to see the items</div>
+          <span *ngFor="let table of tableList">
+            <button class="btn table-status-button"
+                    [ngClass]="{'table-status-active': table.isActive ? true : ''}"
+                    [class.table-status-selected]="table.tableNumber === selectedTable.tableNumber ? true : ''"
+                    (click)="selectTableOnClick(table)">
+                      {{table.tableNumber}}</button>
+        </span>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="todays-collection-div box">
+          Chart Here
+        </div>
+        <div class="total-bill-div box">
+          <div class="total-bill-div-content">
+            <div class="row">
+              <div class="col-md-4 total-bill-small-heading">
+                <label for="totalBill">Bill Total</label>
+              </div>
+              <div class="col-md-8">
+                <input type="text" disabled class="total-bill-inputs" id="totalBill" value="{{selectedTable.total}}">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 total-bill-small-heading">
+                <label for="discount">Discount</label>
+              </div>
+              <div class="col-md-8">
+                <input type="text" disabled class="total-bill-inputs" id="discount"
+                       value="{{selectedTable.discount}} %">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 total-bill-small-heading">
+                <label for="gst">GST</label>
+              </div>
+              <div class="col-md-8">
+                <input type="text" disabled class="total-bill-inputs" id="gst" value="{{selectedTable.gst}} %">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 total-bill-small-heading">
+                <label for="grandTotal">Grand Total</label>
+              </div>
+              <div class="col-md-8">
+                <input type="text" disabled class="total-bill-inputs" id="grandTotal"
+                       value="{{selectedTable.grandTotal}}">
+              </div>
+            </div>
+            <div class="row total-bill-buttons">
+            <span>
+              <button class="btn fancy-btn" (click)="printBill()">Print</button>
+            </span>
+              <span>
+              <button class="btn fancy-btn" (click)="closeTable()">Close Table</button>
+            </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

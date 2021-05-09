@@ -1,0 +1,43 @@
+<div class="login-page">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 hotel-content">
+        <h2>{{hotelNameHeading}}</h2>
+        <h3>{{hotelNameSubHeading}}</h3>
+        <p>
+          <span>Branch: {{hotelBranchName}}</span> <span>Branch Code:
+          {{hotelBranchCode}}</span>
+        </p>
+        <div class="main-menu-div">
+          <div>
+            <button class="main-menu-button" *ngFor="let item of mainMenuList"
+                    [ngStyle]="{'background-color': item.bgcolor}">{{item.name}}</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 login-form wrap-login100">
+        <form (ngSubmit)="login()" #loginForm="ngForm" class="login100-form validate-form">
+          <span class="login100-form-title p-b-49">LOGIN</span>
+          <div class="login-error">{{error}}</div>
+          <div class="wrap-input100 validate-input m-b-23"
+               data-validate="Username is reauired">
+            <span class="label-input100">Username</span> <input
+            class="input100" type="text" name="userName" id="userName"
+            placeholder="Type your username" required #userName="ngModel" [(ngModel)]="loginModel.userName"> <span
+            class="focus-input100" data-symbol="&#xf007;"></span>
+          </div>
+          <div class="wrap-input100 validate-input"
+               data-validate="Password is required">
+            <span class="label-input100">Password</span> <input
+            class="input100" type="password" name="password" id="password"
+            placeholder="Type your password" required #password="ngModel" [(ngModel)]="loginModel.password"> <span
+            class="focus-input100" data-symbol="&#xf13e;"></span>
+          </div>
+          <div class="login-btn-div">
+            <button class="btn fancy-btn">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
