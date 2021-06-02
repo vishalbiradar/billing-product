@@ -21,8 +21,12 @@ export class HomeComponent implements OnInit {
   hotelNameSubHeading = 'Family and Garden Resturant';
   hotelBranchName = 'Udgir';
   hotelBranchCode = '1';
+  currentDate = new Date();
 
   constructor(private service: AppService) {
+    setInterval(() => {
+      this.currentDate = new Date();
+    }, 100);
   }
 
   ngOnInit() {

@@ -1,3 +1,66 @@
+html, body {
+  height: 100% !important;
+  margin: 0 !important;
+}
+
+body {
+  font-family: "Roboto", sans-serif !important;
+  color: #2b2b2b !important;
+}
+
+.custom-btn {
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  border-radius: 4px;
+  font-family: "Futura", sans-serif;
+  text-align: center;
+  border: 2px solid #7ad4cc;
+  cursor: pointer;
+  color: #fff;
+  padding: 0 15px;
+  width: 160px;
+  height: 46px;
+}
+
+.custom-btn.custom-btn-gradient.custom-btn-line {
+  color: #20509e;
+  z-index: 1;
+}
+
+.custom-btn.custom-btn-gradient {
+  border: none;
+}
+
+.custom-gradient, .custom-btn-gradient {
+  background: linear-gradient(to right, #3e2bce 0%, #2dd3aa 100%, #2dd3aa 100%, #2dd3aa 100%);
+}
+
+.custom-btn.custom-btn-gradient.custom-btn-line:after {
+  position: absolute;
+  content: '';
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  background: #fff;
+  top: 2px;
+  left: 2px;
+  z-index: -1;
+  border-radius: 50px;
+}
+
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  -webkit-transition-duration: 600ms;
+  transition-duration: 600ms;
+  outline: none;
+}
+
+.margin-top-20 {
+  margin-top: 20px;
+}
+
 /* ScrollBar css start */
 /* width */
 ::-webkit-scrollbar {

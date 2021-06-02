@@ -1,6 +1,21 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<!--<nav class="navbar navbar-default navbar-fixed-top custom-gradient">-->
+<!--  <div class="container-fluid">-->
+<!--    <h2>{{hotelNameHeading}}</h2>-->
+<!--    <ul class="nav navbar-nav navbar-right">-->
+<!--      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
+<!--      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--</nav>-->
+
+<nav class="navbar navbar-default navbar-fixed-top custom-gradient">
   <div class="container-fluid">
-    <h2>{{hotelNameHeading}}</h2>
+    <div class="navbar-header">
+      <a class="navbar-brand">{{hotelNameHeading}}</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a class="current-date"><i class="fa fa-clock-o"></i> Date: {{currentDate | date:'dd-MM-yyyy hh:mm:ss'}}</a></li>
+    </ul>
   </div>
 </nav>
 
@@ -38,7 +53,7 @@
                          required>
                 </td>
                 <td>
-                  <button class="btn fancy-btn">Add to cart</button>
+                  <button class="custom-btn custom-btn-gradient margin-top-20">Add to cart</button>
                 </td>
               </tr>
               </tbody>
@@ -70,17 +85,36 @@
         <div class="table-status-div box">
           <div class="select-table-text">Click on table number to see the items</div>
           <span *ngFor="let table of tableList">
-            <button class="btn table-status-button"
-                    [ngClass]="{'table-status-active': table.isActive ? true : ''}"
-                    [class.table-status-selected]="table.tableNumber === selectedTable.tableNumber ? true : ''"
+            <button class="custom-btn table-status-button"
+                    [ngClass]="{'table-status-active custom-btn-gradient': table.isActive ? true : ''}"
+                    [class.table-status-selected]="table.tableNumber === selectedTable.tableNumber && table.isActive !== true? true : ''"
                     (click)="selectTableOnClick(table)">
                       {{table.tableNumber}}</button>
         </span>
         </div>
       </div>
       <div class="col-md-3">
-        <div class="todays-collection-div box">
-          Chart Here
+        <div class="todays-table-summary box">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2 active-table-count">
+              <div class="summary-count">
+                10
+              </div>
+              Active Tables
+            </div>
+            <div class="col-md-8 col-md-offset-2 closed-table-count">
+              <div class="summary-count">
+                10
+              </div>
+              Today's Closed Tables
+            </div>
+            <div class="col-md-8 col-md-offset-2 todays-income-count">
+              <div class="summary-count">
+                {{10000 | currency : 'INR'}}
+              </div>
+              Today's Income
+            </div>
+          </div>
         </div>
         <div class="total-bill-div box">
           <div class="total-bill-div-content">
@@ -120,10 +154,10 @@
             </div>
             <div class="row total-bill-buttons">
             <span>
-              <button class="btn fancy-btn" (click)="printBill()">Print</button>
+              <button class="custom-btn custom-btn-gradient" (click)="printBill()">Print</button>
             </span>
               <span>
-              <button class="btn fancy-btn" (click)="closeTable()">Close Table</button>
+              <button class="custom-btn custom-btn-gradient" (click)="closeTable()">Close Table</button>
             </span>
             </div>
           </div>
