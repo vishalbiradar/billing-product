@@ -15,4 +15,15 @@ export class TableModel {
   grandTotal: number;
 }
 
+export class HotelModel {
+  hotelId: number;
+  discount: number;
+  gst: number;
+  hotelAddress: string;
+  hotelBranchCode: number;
+  hotelBranchName: string;
+  hotelDescription: string;
+  hotelName: string;
+  hotelSpeciality: any[];
+}
 

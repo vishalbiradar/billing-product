@@ -40,7 +40,7 @@
 
 .login-page .main-menu-div {
   padding: 0;
-  margin-top: 20px
+  margin-top: 20px;
 }
 
 .login-page .main-menu-button {
@@ -188,19 +188,19 @@
 }
 
 .input100:focus + .focus-input100::before {
-  width: 100%
+  width: 100%;
 }
 
 .has-val.input100 + .focus-input100::before {
-  width: 100%
+  width: 100%;
 }
 
 .input100:focus + .focus-input100::after {
-  color: #0DB8DE
+  color: #0DB8DE;
 }
 
 .has-val.input100 + .focus-input100::after {
-  color: #0DB8DE
+  color: #0DB8DE;
 }
 
 .alert-validate::before {
@@ -211,7 +211,6 @@
   border: 1px solid #c80000;
   border-radius: 2px;
   padding: 4px 25px 4px 10px;
-  bottom: calc((100% - 20px) / 2);
   -webkit-transform: translateY(50%);
   -moz-transform: translateY(50%);
   -ms-transform: translateY(50%);
@@ -228,7 +227,9 @@
   -webkit-transition: opacity .4s;
   -o-transition: opacity .4s;
   -moz-transition: opacity .4s;
-  transition: opacity .4s
+  transition: opacity .4s;
+  /*bottom: calc((100% - 20px) / 2);*/
+  bottom: 30px;
 }
 
 .alert-validate::after {
@@ -238,18 +239,19 @@
   position: absolute;
   color: #c80000;
   font-size: 16px;
-  bottom: calc((100% - 20px) / 2);
   -webkit-transform: translateY(50%);
   -moz-transform: translateY(50%);
   -ms-transform: translateY(50%);
   -o-transform: translateY(50%);
   transform: translateY(50%);
-  right: 8px
+  right: 8px;
+  /*bottom: calc((100% - 20px) / 2);*/
+  bottom: 30px;
 }
 
 .alert-validate:hover:before {
   visibility: visible;
-  opacity: 1
+  opacity: 1;
 }
 
 .login-error {

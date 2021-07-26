@@ -2,8 +2,6 @@ package com.vrb.product.service;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +16,12 @@ public class BillingProductService {
 	@Autowired
 	HotelRepository hotelRepository;
 
-	public List<Hotel> getHotelDetails(Integer hotelId) {
+	public Hotel getHotelDetails(Integer hotelId) {
 		return hotelRepository.findByHotelId(hotelId);
+	}
+	
+	public Hotel login(String userName, String password) {
+		return hotelRepository.findByUserNameAndPassword(userName, password);
 	}
 
 	public ResponseEntity<Object> getSuccessResponseByType(Object data, HttpStatus type) {

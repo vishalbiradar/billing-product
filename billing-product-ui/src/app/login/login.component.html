@@ -3,38 +3,49 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-8 hotel-content">
-          <h2>{{hotelNameHeading}}</h2>
-          <h3>{{hotelNameSubHeading}}</h3>
+          <h2>{{hotelDetails.hotelName}}</h2>
+          <h3>{{hotelDetails.hotelDescription}}</h3>
           <p>
-            <span>Branch: {{hotelBranchName}}</span> <span>Branch Code:
-            {{hotelBranchCode}}</span>
+            <span>Branch: {{hotelDetails.hotelBranchName}}</span> <span>Branch Code:
+            {{hotelDetails.hotelBranchCode}}</span>
           </p>
           <div class="main-menu-div">
             <div>
-              <button class="main-menu-button" *ngFor="let item of mainMenuList"
+              <button class="main-menu-button" *ngFor="let item of hotelDetails.hotelSpeciality"
                       [ngStyle]="{'background-color': item.bgcolor}">{{item.name}}</button>
             </div>
           </div>
         </div>
         <div class="col-md-4 login-content">
           <div class="login-form wrap-login100">
-            <form (ngSubmit)="login()" #loginForm="ngForm" class="login100-form validate-form">
+            <form (ngSubmit)="loginForm.form.valid && login()" #loginForm="ngForm" class="login100-form validate-form">
               <span class="login100-form-title p-b-49">LOGIN</span>
-              <div class="login-error">{{error}}</div>
-              <div class="wrap-input100 validate-input m-b-23"
-                   data-validate="Username is reauired">
-                <label class="label-input100" for="userName">Username</label> <input
-                class="input100" type="text" name="userName" id="userName"
-                placeholder="Type your username" required #userName="ngModel" [(ngModel)]="loginModel.userName"> <span
-                class="focus-input100" data-symbol="&#xf007;"></span>
+              <div class="login-error">{{loginError}}</div>
+
+              <div class="wrap-input100 validate-input m-b-23">
+                <label class="label-input100" for="userName">Username</label>
+                <input class="input100" type="text" name="userName" id="userName"
+                       placeholder="Type your username" required #userName="ngModel" [(ngModel)]="loginModel.userName">
+                <span class="focus-input100" data-symbol="&#xf007;"></span>
+                <div *ngIf="(loginForm.submitted && userName.invalid) || (userName.dirty || userName.touched)">
+                  <div *ngIf="userName.errors?.required" class="alert-validate"
+                       data-validate="Username is reauired">
+                  </div>
+                </div>
               </div>
-              <div class="wrap-input100 validate-input"
-                   data-validate="Password is required">
-                <label class="label-input100" for="password">Password</label> <input
-                class="input100" type="password" name="password" id="password"
-                placeholder="Type your password" required #password="ngModel" [(ngModel)]="loginModel.password"> <span
-                class="focus-input100" data-symbol="&#xf13e;"></span>
+
+              <div class="wrap-input100 validate-input">
+                <label class="label-input100" for="password">Password</label>
+                <input class="input100" type="password" name="password" id="password"
+                       placeholder="Type your password" required #password="ngModel" [(ngModel)]="loginModel.password">
+                <span class="focus-input100" data-symbol="&#xf13e;"></span>
+                <div *ngIf="(loginForm.submitted && password.invalid) || (password.dirty || password.touched)">
+                  <div *ngIf="password.errors?.required" class="alert-validate"
+                       data-validate="Password is reauired">
+                  </div>
+                </div>
               </div>
+
               <div class="login-btn-div">
                 <button class="custom-btn custom-btn-gradient">Login</button>
               </div>
